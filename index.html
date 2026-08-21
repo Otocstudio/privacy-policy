@@ -1,0 +1,328 @@
+<title>Otoč Svojek — soukromí</title>
+<meta name="description" content="Zásady ochrany soukromí aplikace Otoč Svojek">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #faf8f3;
+    --surface: #f1ede2;
+    --surface-line: #e4dcc6;
+    --border: #ddd6c4;
+    --text: #211e17;
+    --text-muted: #5b5646;
+    --accent: #7a5e12;
+    --accent-strong: #5c4708;
+    --check-bg: #eadfa9;
+    --check-ink: #5c4708;
+    --mono-bg: #efe9d8;
+    --mono-border: #d9d0b4;
+    --shadow: 0 1px 2px rgba(33, 30, 23, 0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14161a;
+      --surface: #1b1e24;
+      --surface-line: #262a32;
+      --border: #2c3038;
+      --text: #e8e6df;
+      --text-muted: #9298a6;
+      --accent: #e3c467;
+      --accent-strong: #f0cf5a;
+      --check-bg: #33301c;
+      --check-ink: #e3c467;
+      --mono-bg: #1b1e24;
+      --mono-border: #2c3038;
+      --shadow: none;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14161a;
+    --surface: #1b1e24;
+    --surface-line: #262a32;
+    --border: #2c3038;
+    --text: #e8e6df;
+    --text-muted: #9298a6;
+    --accent: #e3c467;
+    --accent-strong: #f0cf5a;
+    --check-bg: #33301c;
+    --check-ink: #e3c467;
+    --mono-bg: #1b1e24;
+    --mono-border: #2c3038;
+    --shadow: none;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  header.masthead {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .mark {
+    flex: none;
+    width: 44px;
+    height: 44px;
+  }
+
+  .wordmark {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .wordmark .app-name {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .wordmark .doc-name {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .eyebrow {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 0.6rem;
+  }
+
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    line-height: 1.12;
+    text-wrap: balance;
+    margin: 0 0 0.9rem;
+  }
+
+  .lede {
+    color: var(--text-muted);
+    font-size: 1.08rem;
+    max-width: 54ch;
+    margin: 0 0 3rem;
+  }
+
+  h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+    letter-spacing: -0.005em;
+    margin: 3rem 0 0.9rem;
+  }
+
+  section:first-of-type h2 { margin-top: 0; }
+
+  p { margin: 0 0 1.1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  a { color: var(--accent-strong); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+  a:hover { color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+
+  ul.plain { margin: 0 0 1.1rem; padding-left: 1.3rem; }
+  ul.plain li { margin-bottom: 0.45rem; }
+  ul.plain li:last-child { margin-bottom: 0; }
+
+  /* "Ve zkratce" summary card */
+  .glance {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.6rem 1.6rem 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 3rem;
+  }
+
+  .glance h2 {
+    margin: 0 0 1.1rem;
+    font-size: 1.1rem;
+  }
+
+  .glance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem 1.4rem;
+  }
+
+  @media (max-width: 520px) {
+    .glance-grid { grid-template-columns: 1fr; }
+  }
+
+  .glance-item {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+  }
+
+  .glance-check {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--check-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.1rem;
+  }
+
+  .glance-check svg { width: 13px; height: 13px; }
+  .glance-check path { stroke: var(--check-ink); }
+
+  .glance-item .label {
+    font-weight: 600;
+    font-size: 0.98rem;
+    display: block;
+  }
+
+  .glance-item .detail {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  /* manifest-style block, echoing AndroidManifest permissions */
+  .manifest {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 0.82rem;
+    background: var(--mono-bg);
+    border: 1px solid var(--mono-border);
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    margin: 0 0 1.1rem;
+    overflow-x: auto;
+    color: var(--text-muted);
+  }
+
+  .manifest .k { color: var(--text); }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.6rem;
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .page { animation: rise 0.5s ease-out both; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: none; }
+    }
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M 76 20 A 30 30 0 1 0 90 50" fill="none" stroke="var(--text-muted)" stroke-width="9" stroke-linecap="round"/>
+      <polygon points="72,10 92,15 82,32" fill="var(--text-muted)"/>
+      <rect x="34" y="34" width="34" height="34" rx="3" fill="var(--accent-strong)" transform="rotate(18 51 51)"/>
+    </svg>
+    <div class="wordmark">
+      <span class="app-name">Otoč Svojek</span>
+      <span class="doc-name">Zásady ochrany soukromí</span>
+    </div>
+  </header>
+
+  <p class="eyebrow">Účinnost od 21. srpna 2026</p>
+  <h1>Tahle aplikace o vás nic neví — a ani nechce.</h1>
+  <p class="lede">Otoč Svojek je sbírka dvou offline her (skládačka rotujících dílků a hádání směru mezi českými městy). Nemá účet, nemá internet, nemá reklamy. Tady je přesně, co to v praxi znamená.</p>
+
+  <div class="glance">
+    <h2>Ve zkratce</h2>
+    <div class="glance-grid">
+      <div class="glance-item">
+        <span class="glance-check"><svg viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><span class="label">Žádný účet</span><span class="detail">Nic se nezakládá, nikam se nepřihlašujete.</span></span>
+      </div>
+      <div class="glance-item">
+        <span class="glance-check"><svg viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><span class="label">Žádný internet</span><span class="detail">Aplikace nežádá o síťové oprávnění.</span></span>
+      </div>
+      <div class="glance-item">
+        <span class="glance-check"><svg viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><span class="label">Data zůstávají u vás</span><span class="detail">Jediný uložený údaj (rekord) nikdy neopustí telefon.</span></span>
+      </div>
+      <div class="glance-item">
+        <span class="glance-check"><svg viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><span class="label">Žádné reklamy ani sledování</span><span class="detail">Bez reklamních SDK, analytiky či trackerů třetích stran.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Jaká data aplikace shromažďuje</h2>
+    <p>Žádná. Otoč Svojek neshromažďuje, neukládá na server ani nesdílí žádné osobní údaje, identifikátory zařízení, polohu ani chování v aplikaci. V aplikaci nejsou žádné reklamy, analytické nástroje ani sady SDK třetích stran, takže se z ní ven žádná data neposílají — nemá k tomu ostatně ani technickou možnost (viz oprávnění níže).</p>
+  </section>
+
+  <section>
+    <h2>Oprávnění aplikace</h2>
+    <p>Aplikace při instalaci nežádá o žádné oprávnění systému Android — ani o přístup k internetu, poloze, fotoaparátu, kontaktům, úložišti ani čemukoliv jinému.</p>
+    <div class="manifest"><span class="k">uses-permission:</span> (žádné)</div>
+  </section>
+
+  <section>
+    <h2>Co se ukládá v telefonu</h2>
+    <p>Jediný údaj, který si aplikace pamatuje, je vaše <strong>osobní rekordní skóre</strong> ve hře „Tref Brno" (kolik kilometrů jste v jednom kole napřímo uhádli) — aby se po restartu hry nezapomnělo. Ukládá se výhradně lokálně, v soukromém úložišti aplikace na vašem zařízení, nikam se neodesílá a při odinstalování aplikace se spolu s ní smaže.</p>
+    <p>Herní obrázky (mapové výřezy okolí obce Svojek a dalších míst) jsou součástí instalace aplikace a nejsou stahovány za běhu — nejde tedy o síťovou komunikaci ani o vaše data.</p>
+  </section>
+
+  <section>
+    <h2>Mapová data</h2>
+    <p>Mapy použité ve hře jsou předem vykreslené z otevřených dat <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> (© přispěvatelé OpenStreetMap) a z veřejných výškových dat NASA/USGS SRTM. Vykreslení proběhlo při tvorbě aplikace, ne za běhu na vašem zařízení — aplikace tedy při hraní žádnou mapovou službu nekontaktuje a vaši polohu nezjišťuje ani nepoužívá.</p>
+  </section>
+
+  <section>
+    <h2>Děti</h2>
+    <p>Aplikace neshromažďuje údaje od nikoho, tedy ani od dětí. Je vhodná pro všechny věkové kategorie a neobsahuje žádný mechanismus sběru dat, který by bylo potřeba věkově omezovat.</p>
+  </section>
+
+  <section>
+    <h2>Změny těchto zásad</h2>
+    <p>Pokud se v budoucnu způsob nakládání s daty změní (např. přidáním nové funkce), aktualizujeme tuto stránku a upravíme datum účinnosti nahoře. Žádné tiché změny se zpětnou platností.</p>
+  </section>
+
+  <section>
+    <h2>Kontakt</h2>
+    <p>Dotazy k těmto zásadám nebo k aplikaci směřujte na <a href="mailto:otocsvojek@gmail.com">otocsvojek@gmail.com</a>.</p>
+  </section>
+
+  <footer>
+    <span>Otoč Svojek · com.otocstudio.otocsvojek</span>
+    <span>Aktualizováno 21. 8. 2026</span>
+  </footer>
+
+</div>
